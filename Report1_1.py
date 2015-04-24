@@ -59,7 +59,7 @@ def gausselim_by_ref(themat):
     print(themat)
 
 
-print("1.1 - (1) output by Inverse Matrix :")
+print("\n", "1.1 - (1) output by Inverse Matrix :")
 gausselim_by_ref(A1)
 print("1.1 - (2) output by Inverse Matrix :")
 gausselim_by_ref(A2)
