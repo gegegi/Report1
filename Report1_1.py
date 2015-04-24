@@ -34,7 +34,7 @@ def by_gaussian_elimination(a, b):
         j += 1
         j = int(j % row)
 
-    print()
+    print(a)
     print(b)
 
 
