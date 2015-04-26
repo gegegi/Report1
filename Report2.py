@@ -30,7 +30,7 @@ def slu(A):   # http://pygments.org/demo/83380/
                     U[k][i] -= L[k][m] * U[m][i]
                 U[k][i] /= L[k][k]
     except ZeroDivisionError:
-        print("This matrix can't do LU Decomposition.")
+        print("This matrix can't do LU-0 Decomposition.")
     return L, U
 
 
@@ -38,12 +38,12 @@ def slv(L, U, b):
     x = matrix(U).I * matrix(L).I * b
     return x
 
-print("2 - (1) output by Inverse Matrix :")
+print("2 - (1) output by slu, slv :")
 L, U = slu(A1)
 x = slv(L, U, b1)
 print(x, "\n")
 
-print("2 - (2) output by Inverse Matrix :")
+print("2 - (2) output by slu, slv :")
 L, U = slu(A2)
 x = slv(L, U, b2)
 print(x)

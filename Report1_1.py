@@ -1,5 +1,7 @@
 __author__ = 'seokhui_lee'
 
+# 직접 작성한 알고리즘을 통한 가우스 소거
+
 A1 = [[2, 4, -2], [4, 9, -3], [-2, -3, 7]]
 b1 = [[2], [8], [10]]
 
@@ -34,15 +36,31 @@ def by_gaussian_elimination(a, b):
         j += 1
         j = int(j % row)
 
-    print(a)
-    print(b)
+    print("A = ", a)
+    print("b = ", b)
 
 
-print("1.1 - (1) output by Inverse Matrix :")
+def back_sub(a, b):
+    output = [[0] for temp in range(len(b))]
+    for j in range(len(b)-1, -1, -1):
+        output[j][0] = b[j][0]/a[j][j]
+        for i in range(len(b)-1, -1, -1):
+            b[i][0] -= output[j][0]*a[i][j]
+
+    print("x = ", output)
+
+
+
+print("1.1 - (1) output by Gaussian :")
 by_gaussian_elimination(A1, b1)
+back_sub(A1, b1)
 
-print("1.1 - (2) output by Inverse Matrix :")
+print("1.1 - (2) output by Gaussian :")
 by_gaussian_elimination(A2, b2)
+back_sub(A2, b2)
+
+
+# 여기서부턴 참고자료를 참고한부분입니다.
 
 A1 = [[2, 4, -2], [4, 9, -3], [-2, -3, 7]]
 b1 = [[2], [8], [10]]
@@ -58,8 +76,7 @@ def gausselim_by_ref(themat):
             themat[j] = [themat[j][k] - m * themat[i][k] for k in range(len(themat[0]))]
     print(themat)
 
-
-print("\n", "1.1 - (1) output by Inverse Matrix :")
+print("\n", "1.1 - (1) output by Gaussian :")
 gausselim_by_ref(A1)
-print("1.1 - (2) output by Inverse Matrix :")
+print("1.1 - (2) output by Gaussian :")
 gausselim_by_ref(A2)
