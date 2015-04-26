@@ -9,10 +9,9 @@ A2 = [[1, 2], [4, 9]]
 b2 = [[5], [9]]
 
 # 1-(2)
-def by_inverse_matrix(l, b):
-    a = matrix(l)
+def by_inverse_matrix(a, b):
     # (Matrix variable).I means (Matrix variable)'s Inverse matrix - numpy.matrix
-    inverse = a.I
+    inverse = matrix(a).I
     x = inverse * b
     print(x)
 
